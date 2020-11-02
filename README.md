@@ -1,2 +1,3 @@
-# JetFort
-Laravel Jetstream + Fortify configuration
+# Aldrumo Core
+
+Main core files for Aldrumo
