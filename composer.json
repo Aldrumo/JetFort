@@ -13,6 +13,7 @@
         "php": "^7.3",
         "aldrumo/route-loader": "0.*",
         "aldrumo/theme-manager": "0.*",
+        "aldrumo/default-theme": "0.*",
         "illuminate/support": "^8.0",
         "laravel/jetstream": "^1.5",
         "laravel/sanctum": "^2.6",
