@@ -7,7 +7,9 @@ use Aldrumo\Core\Actions\Jetstream\CreateTeam;
 use Aldrumo\Core\Actions\Jetstream\DeleteTeam;
 use Aldrumo\Core\Actions\Jetstream\DeleteUser;
 use Aldrumo\Core\Actions\Jetstream\UpdateTeamName;
+use Aldrumo\ThemeManager\ThemeManager;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Fortify\Fortify;
 use Laravel\Jetstream\Jetstream;
 
 class JetstreamServiceProvider extends ServiceProvider
@@ -30,12 +32,27 @@ class JetstreamServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->configurePermissions();
+        $this->setJetstreamViews();
 
         Jetstream::createTeamsUsing(CreateTeam::class);
         Jetstream::updateTeamNamesUsing(UpdateTeamName::class);
         Jetstream::addTeamMembersUsing(AddTeamMember::class);
         Jetstream::deleteTeamsUsing(DeleteTeam::class);
         Jetstream::deleteUsersUsing(DeleteUser::class);
+    }
+
+    protected function setJetstreamViews()
+    {
+        $activeTheme = $this->themeManager()->activeTheme()->packageName();
+
+        Fortify::loginView(function () use ($activeTheme) {
+            return view($activeTheme . '::auth.login');
+        });
+    }
+
+    protected function themeManager()
+    {
+        return $this->app[ThemeManager::class];
     }
 
     /**

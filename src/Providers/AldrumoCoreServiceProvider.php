@@ -2,6 +2,7 @@
 
 namespace Aldrumo\Core\Providers;
 
+use Aldrumo\ThemeManager\ThemeManager;
 use Illuminate\Support\ServiceProvider;
 
 class AldrumoCoreServiceProvider extends ServiceProvider
@@ -21,6 +22,8 @@ class AldrumoCoreServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        $this->app[ThemeManager::class]->activeTheme('DefaultTheme');
+
         $this->publishes([
             __DIR__ . '/../../config/fortify.php'   => config_path('fortify.php'),
             __DIR__ . '/../../config/jetstream.php' => config_path('jetstream.php'),
