@@ -27,9 +27,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Aldrumo\\Core\\Providers\\AldrumoCoreServiceProvider",
-                "Aldrumo\\Core\\Providers\\FortifyServiceProvider",
-                "Aldrumo\\Core\\Providers\\JetstreamServiceProvider"
+                "Aldrumo\\Core\\Providers\\AldrumoCoreServiceProvider"
             ]
         }
     }

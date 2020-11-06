@@ -9,6 +9,11 @@ class AldrumoCoreServiceProvider extends ServiceProvider
 {
     public function register()
     {
+        $this->app->booting(function ($app) {
+            $app->register(FortifyServiceProvider::class);
+            $app->register(JetstreamServiceProvider::class);
+        });
+
         $this->mergeConfigFrom(
             __DIR__ . '/../../config/fortify.php',
             'fortify'
@@ -22,7 +27,7 @@ class AldrumoCoreServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->app[ThemeManager::class]->activeTheme('DefaultTheme');
+        resolve(ThemeManager::class)->activeTheme('DefaultTheme');
 
         $this->publishes([
             __DIR__ . '/../../config/fortify.php'   => config_path('fortify.php'),
