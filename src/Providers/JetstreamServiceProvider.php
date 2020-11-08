@@ -48,6 +48,10 @@ class JetstreamServiceProvider extends ServiceProvider
         Fortify::loginView(function () use ($activeTheme) {
             return view($activeTheme . '::auth.login');
         });
+
+        Fortify::registerView(function () use ($activeTheme) {
+            return view($activeTheme . '::auth.register');
+        });
     }
 
     protected function themeManager()
