@@ -37,13 +37,7 @@ class JetstreamServiceProvider extends ServiceProvider
     {
         $activeTheme = $this->themeManager()->activeTheme()->packageName();
 
-        Fortify::loginView(function () use ($activeTheme) {
-            return view($activeTheme . '::auth.login');
-        });
-
-        Fortify::registerView(function () use ($activeTheme) {
-            return view($activeTheme . '::auth.register');
-        });
+        Fortify::viewPrefix($activeTheme . '::auth');
     }
 
     protected function themeManager()
@@ -51,11 +45,6 @@ class JetstreamServiceProvider extends ServiceProvider
         return $this->app[ThemeManager::class];
     }
 
-    /**
-     * Configure the roles and permissions that are available within the application.
-     *
-     * @return void
-     */
     protected function configurePermissions()
     {
         Jetstream::defaultApiTokenPermissions(['read']);
