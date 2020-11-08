@@ -6,7 +6,9 @@ use Aldrumo\Core\Actions\Jetstream\DeleteUser;
 use Aldrumo\ThemeManager\ThemeManager;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
+use Laravel\Jetstream\Http\Livewire\NavigationDropdown;
 use Laravel\Jetstream\Jetstream;
+use Livewire\Livewire;
 
 class JetstreamServiceProvider extends ServiceProvider
 {
@@ -31,6 +33,8 @@ class JetstreamServiceProvider extends ServiceProvider
         $this->setJetstreamViews();
 
         Jetstream::deleteUsersUsing(DeleteUser::class);
+
+        Livewire::component('navigation-dropdown', NavigationDropdown::class);
     }
 
     protected function setJetstreamViews()
