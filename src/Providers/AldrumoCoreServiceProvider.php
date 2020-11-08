@@ -29,6 +29,8 @@ class AldrumoCoreServiceProvider extends ServiceProvider
     {
         resolve(ThemeManager::class)->activeTheme('DefaultTheme');
 
+        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
+
         $this->publishes([
             __DIR__ . '/../../config/fortify.php'   => config_path('fortify.php'),
             __DIR__ . '/../../config/jetstream.php' => config_path('jetstream.php'),
