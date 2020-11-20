@@ -41,7 +41,7 @@ class JetstreamServiceProvider extends ServiceProvider
     {
         $activeTheme = $this->themeManager()->activeTheme()->packageName();
 
-        Fortify::viewPrefix($activeTheme . '::auth');
+        Fortify::viewPrefix($activeTheme . '::auth.');
     }
 
     protected function themeManager()
