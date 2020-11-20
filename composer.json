@@ -15,7 +15,7 @@
         "aldrumo/theme-manager": "0.*",
         "aldrumo/default-theme": "0.*",
         "illuminate/support": "^8.0",
-        "laravel/jetstream": "^1.5",
+        "laravel/jetstream": "dev-aldrumo",
         "laravel/sanctum": "^2.6",
         "livewire/livewire": "^2.0"
     },
@@ -30,5 +30,11 @@
                 "Aldrumo\\Core\\Providers\\AldrumoCoreServiceProvider"
             ]
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Aldrumo/jetstream"
+        }
+    ]
 }
