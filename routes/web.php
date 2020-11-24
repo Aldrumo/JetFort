@@ -15,7 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'AldrumoDefaults::default-page');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('DefaultTheme::dashboard');
-})->name('dashboard');
-
+// @todo Route loader stuff here
