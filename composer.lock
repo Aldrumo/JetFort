@@ -4,20 +4,64 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe1006cec9fff67d52a5a60a12a1a60e",
+    "content-hash": "077a76a98ed4d72dbcb96719d8b5b684",
     "packages": [
         {
-            "name": "aldrumo/default-page",
-            "version": "0.2.1",
+            "name": "aldrumo/admin",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Aldrumo/default-page.git",
-                "reference": "6de88eadf29a209fec03376cd06dcc79e0ca79e7"
+                "url": "https://github.com/Aldrumo/admin.git",
+                "reference": "698909d66b570d2614c852443232441f1212a2eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aldrumo/default-page/zipball/6de88eadf29a209fec03376cd06dcc79e0ca79e7",
-                "reference": "6de88eadf29a209fec03376cd06dcc79e0ca79e7",
+                "url": "https://api.github.com/repos/Aldrumo/admin/zipball/698909d66b570d2614c852443232441f1212a2eb",
+                "reference": "698909d66b570d2614c852443232441f1212a2eb",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Aldrumo\\Admin\\Providers\\DefaultPageServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Aldrumo\\Admin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Barlow",
+                    "email": "mike@mikebarlow.co.uk"
+                }
+            ],
+            "description": "The Aldrump Admin Area",
+            "support": {
+                "issues": "https://github.com/Aldrumo/admin/issues",
+                "source": "https://github.com/Aldrumo/admin/tree/0.1.0"
+            },
+            "time": "2020-11-24T08:53:44+00:00"
+        },
+        {
+            "name": "aldrumo/default-page",
+            "version": "0.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Aldrumo/default-page.git",
+                "reference": "9c64859d920ea819f45b240b301755f0c0776e89"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Aldrumo/default-page/zipball/9c64859d920ea819f45b240b301755f0c0776e89",
+                "reference": "9c64859d920ea819f45b240b301755f0c0776e89",
                 "shasum": ""
             },
             "type": "library",
@@ -46,9 +90,9 @@
             "description": "Default Page for Aldrumo",
             "support": {
                 "issues": "https://github.com/Aldrumo/default-page/issues",
-                "source": "https://github.com/Aldrumo/default-page/tree/0.2.1"
+                "source": "https://github.com/Aldrumo/default-page/tree/0.2.3"
             },
-            "time": "2020-11-23T23:52:59+00:00"
+            "time": "2020-11-24T07:47:14+00:00"
         },
         {
             "name": "aldrumo/default-theme",

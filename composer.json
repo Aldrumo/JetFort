@@ -11,6 +11,7 @@
     ],
     "require": {
         "php": "^7.3",
+        "aldrumo/admin": "0.*",
         "aldrumo/route-loader": "0.*",
         "aldrumo/theme-manager": "0.*",
         "aldrumo/default-page": "0.*",
