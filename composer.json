@@ -9,13 +9,14 @@
             "email": "mike@mikebarlow.co.uk"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
         "php": "^7.3",
-        "aldrumo/admin": "0.*",
-        "aldrumo/route-loader": "0.*",
-        "aldrumo/theme-manager": "0.*",
-        "aldrumo/default-page": "0.*",
-        "aldrumo/default-theme": "0.*",
+        "aldrumo/admin": "dev-main",
+        "aldrumo/route-loader": "dev-main",
+        "aldrumo/theme-manager": "dev-main",
+        "aldrumo/default-page": "dev-main",
+        "aldrumo/default-theme": "dev-main",
         "illuminate/support": "^8.0",
         "laravel/jetstream": "dev-aldrumo",
         "laravel/sanctum": "^2.6",
