@@ -3,7 +3,6 @@
 namespace Aldrumo\Core\Providers;
 
 use Aldrumo\Core\Actions\Jetstream\DeleteUser;
-use Aldrumo\ThemeManager\ThemeManager;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
 use Laravel\Jetstream\Http\Livewire\NavigationDropdown;
@@ -33,20 +32,11 @@ class JetstreamServiceProvider extends ServiceProvider
         $this->setJetstreamViews();
 
         Jetstream::deleteUsersUsing(DeleteUser::class);
-
-        Livewire::component('navigation-dropdown', NavigationDropdown::class);
     }
 
     protected function setJetstreamViews()
     {
-        $activeTheme = $this->themeManager()->activeTheme()->packageName();
-
-        Fortify::viewPrefix($activeTheme . '::auth.');
-    }
-
-    protected function themeManager()
-    {
-        return $this->app[ThemeManager::class];
+        Fortify::viewPrefix('Admin::auth.');
     }
 
     protected function configurePermissions()
