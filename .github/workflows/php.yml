@@ -14,8 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Validate composer.json and composer.lock
-        run: composer validate
+#      - name: Validate composer.json and composer.lock
+#        run: composer validate
 
       - name: Cache Composer packages
         id: composer-cache
@@ -28,7 +28,8 @@ jobs:
 
       - name: Install dependencies
         if: steps.composer-cache.outputs.cache-hit != 'true'
-        run: composer install --prefer-dist --no-progress --no-suggest
+        run: composer update
+#        run: composer install --prefer-dist --no-progress --no-suggest
 
       - name: Run test suite
         run: composer run-script test
