@@ -2,6 +2,8 @@
 
 namespace Aldrumo\Core\Providers;
 
+use Aldrumo\Admin\Contracts\AdminManager;
+use Aldrumo\Admin\Manager\MenuItem;
 use Aldrumo\ThemeManager\ThemeManager;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
