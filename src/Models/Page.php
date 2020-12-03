@@ -17,6 +17,10 @@ class Page extends Model
         'is_active',
     ];
 
+    protected $casts = [
+        'is_active' => 'boolean',
+    ];
+
     /**
      * Get the options for generating the slug.
      */
