@@ -2,13 +2,14 @@
 
 namespace Aldrumo\Core\Models;
 
+use Aldrumo\Blocks\Concerns\HasBlocks;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 class Page extends Model
 {
-    use HasSlug;
+    use HasSlug, HasBlocks;
 
     protected $fillable = [
         'title',
