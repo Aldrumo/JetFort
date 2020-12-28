@@ -32,4 +32,11 @@ class Page extends Model
             ->saveSlugsTo('slug')
             ->slugsShouldBeNoLongerThan(250);
     }
+
+    public function delete(): bool
+    {
+        $this->blocks()->delete();
+
+        return parent::delete();
+    }
 }
