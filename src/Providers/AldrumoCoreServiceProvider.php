@@ -4,6 +4,9 @@ namespace Aldrumo\Core\Providers;
 
 use Aldrumo\Admin\Contracts\AdminManager;
 use Aldrumo\Admin\Manager\MenuItem;
+use Aldrumo\Core\Routes\Loader;
+use Aldrumo\RouteLoader\Contracts\RouteLoader;
+use Aldrumo\RouteLoader\Generator;
 use Aldrumo\ThemeManager\ThemeManager;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -13,6 +16,7 @@ class AldrumoCoreServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerConfigs();
+        $this->registerRouteLoader();
         $this->registerServerProviders();
     }
 
@@ -51,7 +55,7 @@ class AldrumoCoreServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->group(
                 function () {
-                    //RouteLoader::generateRoutes();
+                    resolve(Generator::class)->generateRoutes();
                 }
             );
 
@@ -78,6 +82,14 @@ class AldrumoCoreServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/../../config/jetstream.php',
             'jetstream'
+        );
+    }
+
+    protected function registerRouteLoader()
+    {
+        $this->app->bind(
+            RouteLoader::class,
+            Loader::class
         );
     }
 
