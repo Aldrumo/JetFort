@@ -27,10 +27,16 @@ class Page extends Model
      */
     public function getSlugOptions() : SlugOptions
     {
-        return SlugOptions::create()
+        $slugOptions = SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug')
             ->slugsShouldBeNoLongerThan(250);
+
+        if ($this->slug === '/') {
+            $slugOptions = $slugOptions->doNotGenerateSlugsOnUpdate();
+        }
+
+        return $slugOptions;
     }
 
     public function delete(): bool
