@@ -18,6 +18,7 @@
         "aldrumo/default-page": "dev-main",
         "aldrumo/default-theme": "dev-main",
         "aldrumo/blocks": "dev-main",
+        "aldrumo/settings": "dev-main",
         "illuminate/support": "^8.0",
         "laravel/jetstream": "^2.1",
         "laravel/sanctum": "^2.6",
