@@ -8,6 +8,7 @@ use Aldrumo\Core\Tests\Fixtures\TestClasses\AnotherThemeServiceProvider;
 use Aldrumo\Core\Tests\Fixtures\TestClasses\DefaultThemeServiceProvider;
 use Aldrumo\RouteLoader\Contracts\RouteLoader;
 use Aldrumo\RouteLoader\RouteLoaderServiceProvider;
+use Aldrumo\Settings\SettingsServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
@@ -21,6 +22,7 @@ class TestCase extends BaseTestCase
             LivewireServiceProvider::class,
             AldrumoCoreServiceProvider::class,
             RouteLoaderServiceProvider::class,
+            SettingsServiceProvider::class,
         ];
     }
 
