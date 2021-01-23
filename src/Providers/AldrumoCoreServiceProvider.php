@@ -7,6 +7,7 @@ use Aldrumo\Admin\Manager\MenuItem;
 use Aldrumo\Core\Routes\Loader;
 use Aldrumo\RouteLoader\Contracts\RouteLoader;
 use Aldrumo\RouteLoader\Generator;
+use Aldrumo\Settings\Contracts\Repository as SettingsContract;
 use Aldrumo\ThemeManager\ThemeManager;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -22,7 +23,9 @@ class AldrumoCoreServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        resolve(ThemeManager::class)->activeTheme('DefaultTheme');
+        resolve(ThemeManager::class)->activeTheme(
+            resolve(SettingsContract::class)->get('activeTheme')
+        );
 
         $this->bootMigrations();
         $this->bootPublishes();
