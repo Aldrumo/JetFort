@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "545d704397868aa374bdbb7cd67be326",
+    "content-hash": "2fefcd808d32ed558ccf8b326ea22060",
     "packages": [
         {
             "name": "aldrumo/admin",
@@ -214,6 +214,60 @@
             "time": "2020-12-22T08:35:38+00:00"
         },
         {
+            "name": "aldrumo/installer",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Aldrumo/installer.git",
+                "reference": "f4c1879a713de088e1e875bd5eb12498ac115680"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Aldrumo/installer/zipball/f4c1879a713de088e1e875bd5eb12498ac115680",
+                "reference": "f4c1879a713de088e1e875bd5eb12498ac115680",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.0",
+                "php": "^7.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^8.5",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Aldrumo\\Installer\\InstallerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Aldrumo\\Installer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Barlow",
+                    "email": "mike@mikebarlow.co.uk"
+                }
+            ],
+            "description": "Installer for Aldrumo",
+            "support": {
+                "issues": "https://github.com/Aldrumo/installer/issues",
+                "source": "https://github.com/Aldrumo/installer/tree/main"
+            },
+            "time": "2021-01-23T21:29:29+00:00"
+        },
+        {
             "name": "aldrumo/route-loader",
             "version": "dev-main",
             "source": {
@@ -273,12 +327,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aldrumo/settings.git",
-                "reference": "58345539868e7895167a98bc6eefba2af3d89efe"
+                "reference": "f121ca10e35708a879c33caa3e305f6e7ca0f6ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aldrumo/settings/zipball/58345539868e7895167a98bc6eefba2af3d89efe",
-                "reference": "58345539868e7895167a98bc6eefba2af3d89efe",
+                "url": "https://api.github.com/repos/Aldrumo/settings/zipball/f121ca10e35708a879c33caa3e305f6e7ca0f6ce",
+                "reference": "f121ca10e35708a879c33caa3e305f6e7ca0f6ce",
                 "shasum": ""
             },
             "require": {
@@ -319,7 +373,7 @@
                 "issues": "https://github.com/Aldrumo/settings/issues",
                 "source": "https://github.com/Aldrumo/settings/tree/main"
             },
-            "time": "2021-01-23T17:28:32+00:00"
+            "time": "2021-01-23T18:29:09+00:00"
         },
         {
             "name": "aldrumo/support",
@@ -1399,12 +1453,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "cc03df353661a4b7364a5a0c11fa858c7d33c5c3"
+                "reference": "72a44d33a534aca63e37ee5dceecd3c0eb912656"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/cc03df353661a4b7364a5a0c11fa858c7d33c5c3",
-                "reference": "cc03df353661a4b7364a5a0c11fa858c7d33c5c3",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/72a44d33a534aca63e37ee5dceecd3c0eb912656",
+                "reference": "72a44d33a534aca63e37ee5dceecd3c0eb912656",
                 "shasum": ""
             },
             "require": {
@@ -1559,7 +1613,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-01-22T16:54:02+00:00"
+            "time": "2021-01-23T18:20:10+00:00"
         },
         {
             "name": "laravel/jetstream",
@@ -7684,6 +7738,7 @@
         "aldrumo/default-theme": 20,
         "aldrumo/blocks": 20,
         "aldrumo/settings": 20,
+        "aldrumo/installer": 20,
         "spatie/laravel-sluggable": 20
     },
     "prefer-stable": false,
