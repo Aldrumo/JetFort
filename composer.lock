@@ -273,12 +273,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aldrumo/settings.git",
-                "reference": "3dcfba1f38b4c615a3a29402646ba28fb8f307fe"
+                "reference": "58345539868e7895167a98bc6eefba2af3d89efe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aldrumo/settings/zipball/3dcfba1f38b4c615a3a29402646ba28fb8f307fe",
-                "reference": "3dcfba1f38b4c615a3a29402646ba28fb8f307fe",
+                "url": "https://api.github.com/repos/Aldrumo/settings/zipball/58345539868e7895167a98bc6eefba2af3d89efe",
+                "reference": "58345539868e7895167a98bc6eefba2af3d89efe",
                 "shasum": ""
             },
             "require": {
@@ -319,7 +319,7 @@
                 "issues": "https://github.com/Aldrumo/settings/issues",
                 "source": "https://github.com/Aldrumo/settings/tree/main"
             },
-            "time": "2021-01-23T12:32:17+00:00"
+            "time": "2021-01-23T17:28:32+00:00"
         },
         {
             "name": "aldrumo/support",
