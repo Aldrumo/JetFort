@@ -219,12 +219,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aldrumo/installer.git",
-                "reference": "f4c1879a713de088e1e875bd5eb12498ac115680"
+                "reference": "61a5b6ee8d8f9e4fcdea4d14572106a450b93dcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aldrumo/installer/zipball/f4c1879a713de088e1e875bd5eb12498ac115680",
-                "reference": "f4c1879a713de088e1e875bd5eb12498ac115680",
+                "url": "https://api.github.com/repos/Aldrumo/installer/zipball/61a5b6ee8d8f9e4fcdea4d14572106a450b93dcf",
+                "reference": "61a5b6ee8d8f9e4fcdea4d14572106a450b93dcf",
                 "shasum": ""
             },
             "require": {
@@ -265,7 +265,7 @@
                 "issues": "https://github.com/Aldrumo/installer/issues",
                 "source": "https://github.com/Aldrumo/installer/tree/main"
             },
-            "time": "2021-01-23T21:29:29+00:00"
+            "time": "2021-01-24T17:29:34+00:00"
         },
         {
             "name": "aldrumo/route-loader",
@@ -1453,12 +1453,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "72a44d33a534aca63e37ee5dceecd3c0eb912656"
+                "reference": "ae790fe7ba869cd6bd543a985c8933b2d37a1c14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/72a44d33a534aca63e37ee5dceecd3c0eb912656",
-                "reference": "72a44d33a534aca63e37ee5dceecd3c0eb912656",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ae790fe7ba869cd6bd543a985c8933b2d37a1c14",
+                "reference": "ae790fe7ba869cd6bd543a985c8933b2d37a1c14",
                 "shasum": ""
             },
             "require": {
@@ -1613,7 +1613,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-01-23T18:20:10+00:00"
+            "time": "2021-01-24T11:12:36+00:00"
         },
         {
             "name": "laravel/jetstream",
