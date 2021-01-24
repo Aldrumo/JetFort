@@ -23,15 +23,13 @@ class AldrumoCoreServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        if (! $this->app->runningInConsole()) {
-            resolve(ThemeManager::class)->activeTheme(
-                resolve(SettingsContract::class)->get('activeTheme')
-            );
-        }
-
         $this->bootMigrations();
         $this->bootPublishes();
-        $this->bootRoutes();
+
+        if (file_exists(storage_path('app/aldrumo.installed'))) {
+            $this->bootRoutes();
+            $this->bootTheme();
+        }
     }
 
     protected function bootMigrations()
@@ -70,6 +68,15 @@ class AldrumoCoreServiceProvider extends ServiceProvider
                     $this->loadRoutesFrom(__DIR__ . '/../../routes/api.php');
                 }
             );
+    }
+
+    protected function bootTheme()
+    {
+        if (! $this->app->runningInConsole()) {
+            resolve(ThemeManager::class)->activeTheme(
+                resolve(SettingsContract::class)->get('activeTheme')
+            );
+        }
     }
 
     protected function registerConfigs()
