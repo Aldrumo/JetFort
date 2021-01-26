@@ -218,12 +218,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aldrumo/installer.git",
-                "reference": "b0a0eff6d3ed0eea3c429cfcca6f42c13f9f730b"
+                "reference": "f7e335813d383f4fc387a45b7a832ebf13038c00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aldrumo/installer/zipball/b0a0eff6d3ed0eea3c429cfcca6f42c13f9f730b",
-                "reference": "b0a0eff6d3ed0eea3c429cfcca6f42c13f9f730b",
+                "url": "https://api.github.com/repos/Aldrumo/installer/zipball/f7e335813d383f4fc387a45b7a832ebf13038c00",
+                "reference": "f7e335813d383f4fc387a45b7a832ebf13038c00",
                 "shasum": ""
             },
             "require": {
@@ -231,6 +231,7 @@
                 "php": "^7.3"
             },
             "require-dev": {
+                "aldrumo/core": "dev-main",
                 "orchestra/testbench": "^6.0",
                 "phpunit/phpunit": "^8.5",
                 "squizlabs/php_codesniffer": "^3.5"
@@ -264,7 +265,7 @@
                 "issues": "https://github.com/Aldrumo/installer/issues",
                 "source": "https://github.com/Aldrumo/installer/tree/main"
             },
-            "time": "2021-01-24T18:22:11+00:00"
+            "time": "2021-01-26T23:25:45+00:00"
         },
         {
             "name": "aldrumo/route-loader",
