@@ -3,11 +3,20 @@
 namespace Aldrumo\Core\Http\Controllers;
 
 use Aldrumo\Core\Models\Page;
+use Aldrumo\ThemeManager\ThemeManager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
 class PageController
 {
+    /** @var ThemeManager */
+    protected $themeManager;
+
+    public function __construct(ThemeManager $themeManager)
+    {
+        $this->themeManager = $themeManager;
+    }
+
     public function __invoke(Request $request)
     {
         $id = $this->findPageId($request);
@@ -26,6 +35,7 @@ class PageController
         ]);
 
         return view(
+            $this->themeManager->activeTheme()->packageName() . '::' .
             $page->template,
             [
                 'page' => $page,
