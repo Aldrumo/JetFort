@@ -5,8 +5,8 @@ namespace Aldrumo\Core\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static void version()
- * @method static void isInstalled()
+ * @method static string version()
+ * @method static bool isInstalled()
  */
 class Aldrumo extends Facade
 {
