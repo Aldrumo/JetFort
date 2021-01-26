@@ -4,6 +4,7 @@ namespace Aldrumo\Core\Providers;
 
 use Aldrumo\Admin\Contracts\AdminManager;
 use Aldrumo\Admin\Manager\MenuItem;
+use Aldrumo\Core\Aldrumo;
 use Aldrumo\Core\Routes\Loader;
 use Aldrumo\RouteLoader\Contracts\RouteLoader;
 use Aldrumo\RouteLoader\Generator;
@@ -16,6 +17,7 @@ class AldrumoCoreServiceProvider extends ServiceProvider
 {
     public function register()
     {
+        $this->registerBindings();
         $this->registerConfigs();
         $this->registerRouteLoader();
         $this->registerServerProviders();
@@ -74,6 +76,16 @@ class AldrumoCoreServiceProvider extends ServiceProvider
     {
         resolve(ThemeManager::class)->activeTheme(
             resolve(SettingsContract::class)->get('activeTheme')
+        );
+    }
+
+    protected function registerBindings()
+    {
+        $this->app->singleton(
+            'aldrumo',
+            function () {
+                return new Aldrumo();
+            }
         );
     }
 

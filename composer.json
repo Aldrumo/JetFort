@@ -34,7 +34,10 @@
     "autoload": {
         "psr-4": {
             "Aldrumo\\Core\\": "src/"
-        }
+        },
+        "classmap": [
+            "src/Facades"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
