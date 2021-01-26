@@ -28,7 +28,7 @@ class AldrumoCoreServiceProvider extends ServiceProvider
         $this->bootMigrations();
         $this->bootPublishes();
 
-        if (file_exists(storage_path('app/aldrumo.installed'))) {
+        if ($this->app['aldrumo']->isInstalled()) {
             $this->bootRoutes();
             $this->bootTheme();
         }
