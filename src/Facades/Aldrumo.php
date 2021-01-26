@@ -1,5 +1,6 @@
-
 <?php
+
+namespace Aldrumo\Core\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

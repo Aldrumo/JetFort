@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aldrumo/admin.git",
-                "reference": "c8524c26b96f010596cb7ba7c6e9598ad62d8f30"
+                "reference": "ef3ba45e7f40d93f92365c905887e7017a71ad74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aldrumo/admin/zipball/c8524c26b96f010596cb7ba7c6e9598ad62d8f30",
-                "reference": "c8524c26b96f010596cb7ba7c6e9598ad62d8f30",
+                "url": "https://api.github.com/repos/Aldrumo/admin/zipball/ef3ba45e7f40d93f92365c905887e7017a71ad74",
+                "reference": "ef3ba45e7f40d93f92365c905887e7017a71ad74",
                 "shasum": ""
             },
             "require": {
@@ -60,7 +60,7 @@
                 "issues": "https://github.com/Aldrumo/admin/issues",
                 "source": "https://github.com/Aldrumo/admin/tree/main"
             },
-            "time": "2021-01-24T22:27:32+00:00"
+            "time": "2021-01-26T08:51:36+00:00"
         },
         {
             "name": "aldrumo/blocks",
@@ -169,12 +169,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aldrumo/default-theme.git",
-                "reference": "234967fb3188cadc2683e5a095f6f66f1a458379"
+                "reference": "7dc914993aa810ff71c78e4c6fd9c59b5e1d8630"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aldrumo/default-theme/zipball/234967fb3188cadc2683e5a095f6f66f1a458379",
-                "reference": "234967fb3188cadc2683e5a095f6f66f1a458379",
+                "url": "https://api.github.com/repos/Aldrumo/default-theme/zipball/7dc914993aa810ff71c78e4c6fd9c59b5e1d8630",
+                "reference": "7dc914993aa810ff71c78e4c6fd9c59b5e1d8630",
                 "shasum": ""
             },
             "require": {
@@ -210,7 +210,7 @@
                 "issues": "https://github.com/Aldrumo/default-theme/issues",
                 "source": "https://github.com/Aldrumo/default-theme/tree/main"
             },
-            "time": "2021-01-26T08:01:07+00:00"
+            "time": "2021-01-26T08:53:19+00:00"
         },
         {
             "name": "aldrumo/installer",
@@ -1249,23 +1249,23 @@
         },
         {
             "name": "jaybizzle/crawler-detect",
-            "version": "v1.2.103",
+            "version": "v1.2.104",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JayBizzle/Crawler-Detect.git",
-                "reference": "3efa2860959cc971f17624b40bf0699823f9d0f3"
+                "reference": "a581e89a9212c4e9d18049666dc735718c29de9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/3efa2860959cc971f17624b40bf0699823f9d0f3",
-                "reference": "3efa2860959cc971f17624b40bf0699823f9d0f3",
+                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/a581e89a9212c4e9d18049666dc735718c29de9c",
+                "reference": "a581e89a9212c4e9d18049666dc735718c29de9c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8|^5.5|^6.5"
+                "phpunit/phpunit": "^4.8|^5.5|^6.5|^9.4"
             },
             "type": "library",
             "autoload": {
@@ -1295,9 +1295,9 @@
             ],
             "support": {
                 "issues": "https://github.com/JayBizzle/Crawler-Detect/issues",
-                "source": "https://github.com/JayBizzle/Crawler-Detect/tree/v1.2.103"
+                "source": "https://github.com/JayBizzle/Crawler-Detect/tree/v1.2.104"
             },
-            "time": "2020-11-23T19:49:25+00:00"
+            "time": "2021-01-13T15:25:20+00:00"
         },
         {
             "name": "jenssegers/agent",
@@ -1452,12 +1452,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e93c478adc5f1524d3dc77fea53a3c4cd34fd79b"
+                "reference": "05da44d6823c2923597519ac10151f5827a24f80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e93c478adc5f1524d3dc77fea53a3c4cd34fd79b",
-                "reference": "e93c478adc5f1524d3dc77fea53a3c4cd34fd79b",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/05da44d6823c2923597519ac10151f5827a24f80",
+                "reference": "05da44d6823c2923597519ac10151f5827a24f80",
                 "shasum": ""
             },
             "require": {
@@ -1613,7 +1613,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-01-25T21:14:10+00:00"
+            "time": "2021-01-26T14:40:21+00:00"
         },
         {
             "name": "laravel/jetstream",
@@ -1621,12 +1621,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "4c6eca09dff22e2d28314e210848802c4ae8d180"
+                "reference": "daa199f0a8dae5360bd331b19ef3ec1864961567"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/4c6eca09dff22e2d28314e210848802c4ae8d180",
-                "reference": "4c6eca09dff22e2d28314e210848802c4ae8d180",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/daa199f0a8dae5360bd331b19ef3ec1864961567",
+                "reference": "daa199f0a8dae5360bd331b19ef3ec1864961567",
                 "shasum": ""
             },
             "require": {
@@ -1681,7 +1681,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2021-01-25T20:53:50+00:00"
+            "time": "2021-01-26T19:27:31+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -1689,12 +1689,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sanctum.git",
-                "reference": "fecc7ef42556334997ca1e69f42b904a84d8a28e"
+                "reference": "eb191ddfc3ec04bbead33593bf982e871095f25c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sanctum/zipball/fecc7ef42556334997ca1e69f42b904a84d8a28e",
-                "reference": "fecc7ef42556334997ca1e69f42b904a84d8a28e",
+                "url": "https://api.github.com/repos/laravel/sanctum/zipball/eb191ddfc3ec04bbead33593bf982e871095f25c",
+                "reference": "eb191ddfc3ec04bbead33593bf982e871095f25c",
                 "shasum": ""
             },
             "require": {
@@ -1746,7 +1746,7 @@
                 "issues": "https://github.com/laravel/sanctum/issues",
                 "source": "https://github.com/laravel/sanctum"
             },
-            "time": "2021-01-25T01:14:33+00:00"
+            "time": "2021-01-26T19:47:38+00:00"
         },
         {
             "name": "league/commonmark",
@@ -2231,12 +2231,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "48b5345ddc38596c75cb3b5dcce631da45fa3b24"
+                "reference": "e6ef33cb1f67a4bed831ed6d0f7e156739a5d8cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/48b5345ddc38596c75cb3b5dcce631da45fa3b24",
-                "reference": "48b5345ddc38596c75cb3b5dcce631da45fa3b24",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/e6ef33cb1f67a4bed831ed6d0f7e156739a5d8cd",
+                "reference": "e6ef33cb1f67a4bed831ed6d0f7e156739a5d8cd",
                 "shasum": ""
             },
             "require": {
@@ -2317,7 +2317,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-22T10:26:24+00:00"
+            "time": "2021-01-26T20:46:41+00:00"
         },
         {
             "name": "opis/closure",
@@ -5013,12 +5013,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "c95468897f408dd0aca2ff582074423dd0455122"
+                "reference": "13c9099cdb470223b5863f7d11d17554b2dc6404"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/c95468897f408dd0aca2ff582074423dd0455122",
-                "reference": "c95468897f408dd0aca2ff582074423dd0455122",
+                "url": "https://api.github.com/repos/symfony/string/zipball/13c9099cdb470223b5863f7d11d17554b2dc6404",
+                "reference": "13c9099cdb470223b5863f7d11d17554b2dc6404",
                 "shasum": ""
             },
             "require": {
@@ -5089,7 +5089,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-25T15:14:59+00:00"
+            "time": "2021-01-26T09:33:05+00:00"
         },
         {
             "name": "symfony/translation",
@@ -5803,12 +5803,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "14a510d1997d8e139a4414faea988d528ffc29ba"
+                "reference": "59a0cd94b8a65c0729a72e3bf2e81fc6071c8500"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/14a510d1997d8e139a4414faea988d528ffc29ba",
-                "reference": "14a510d1997d8e139a4414faea988d528ffc29ba",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/59a0cd94b8a65c0729a72e3bf2e81fc6071c8500",
+                "reference": "59a0cd94b8a65c0729a72e3bf2e81fc6071c8500",
                 "shasum": ""
             },
             "require": {
@@ -5868,7 +5868,7 @@
                 "issues": "https://github.com/mockery/mockery/issues",
                 "source": "https://github.com/mockery/mockery/tree/master"
             },
-            "time": "2020-12-11T13:34:57+00:00"
+            "time": "2021-01-26T14:26:44+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5935,16 +5935,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench.git",
-                "reference": "a3277878ac660e3b53c7d810ac200208cbf98780"
+                "reference": "5d22c9107465309dda76218d70a20c307fddae51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/a3277878ac660e3b53c7d810ac200208cbf98780",
-                "reference": "a3277878ac660e3b53c7d810ac200208cbf98780",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/5d22c9107465309dda76218d70a20c307fddae51",
+                "reference": "5d22c9107465309dda76218d70a20c307fddae51",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^8.24",
+                "laravel/framework": "^8.25",
                 "mockery/mockery": "^1.4.2",
                 "orchestra/testbench-core": "^6.12",
                 "php": ">=7.3 || >=8.0",
@@ -5992,7 +5992,7 @@
                     "type": "liberapay"
                 }
             ],
-            "time": "2021-01-26T00:12:30+00:00"
+            "time": "2021-01-26T11:09:52+00:00"
         },
         {
             "name": "orchestra/testbench-core",
@@ -6000,12 +6000,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench-core.git",
-                "reference": "98e01186995b097dd2639b95230173312835f7d1"
+                "reference": "55447a4a81d074a9fa20b818d13c46ea6848e898"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/98e01186995b097dd2639b95230173312835f7d1",
-                "reference": "98e01186995b097dd2639b95230173312835f7d1",
+                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/55447a4a81d074a9fa20b818d13c46ea6848e898",
+                "reference": "55447a4a81d074a9fa20b818d13c46ea6848e898",
                 "shasum": ""
             },
             "require": {
@@ -6015,14 +6015,14 @@
                 "vlucas/phpdotenv": "^5.1"
             },
             "require-dev": {
-                "laravel/framework": "^8.22.1",
+                "laravel/framework": "^8.25",
                 "laravel/laravel": "8.x-dev",
                 "mockery/mockery": "^1.4.2",
                 "orchestra/canvas": "^6.0",
                 "phpunit/phpunit": "^8.4 || ^9.0"
             },
             "suggest": {
-                "laravel/framework": "Required for testing (^8.24).",
+                "laravel/framework": "Required for testing (^8.25).",
                 "mockery/mockery": "Allow using Mockery for testing (^1.4.2).",
                 "orchestra/testbench-browser-kit": "Allow using legacy Laravel BrowserKit for testing (^6.0).",
                 "orchestra/testbench-dusk": "Allow using Laravel Dusk for testing (^6.0).",
@@ -6036,6 +6036,11 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "6.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Orchestra\\Testbench\\Foundation\\TestbenchServiceProvider"
+                    ]
                 }
             },
             "autoload": {
@@ -6078,7 +6083,7 @@
                     "type": "liberapay"
                 }
             ],
-            "time": "2021-01-26T00:53:08+00:00"
+            "time": "2021-01-26T12:52:44+00:00"
         },
         {
             "name": "phar-io/manifest",
