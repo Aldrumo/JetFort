@@ -72,11 +72,9 @@ class AldrumoCoreServiceProvider extends ServiceProvider
 
     protected function bootTheme()
     {
-        if (! $this->app->runningInConsole()) {
-            resolve(ThemeManager::class)->activeTheme(
-                resolve(SettingsContract::class)->get('activeTheme')
-            );
-        }
+        resolve(ThemeManager::class)->activeTheme(
+            resolve(SettingsContract::class)->get('activeTheme')
+        );
     }
 
     protected function registerConfigs()
