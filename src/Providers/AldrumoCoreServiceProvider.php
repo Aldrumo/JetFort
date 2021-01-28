@@ -2,11 +2,9 @@
 
 namespace Aldrumo\Core\Providers;
 
-use Aldrumo\Admin\Contracts\AdminManager;
-use Aldrumo\Admin\Manager\MenuItem;
 use Aldrumo\Core\Aldrumo;
 use Aldrumo\Core\Routes\Loader;
-use Aldrumo\Installer\Console\Commands\AldrumoInstall;
+use Aldrumo\Core\Console\Commands\AldrumoInstall;
 use Aldrumo\RouteLoader\Contracts\RouteLoader;
 use Aldrumo\RouteLoader\Generator;
 use Aldrumo\Settings\Contracts\Repository as SettingsContract;
@@ -38,7 +36,7 @@ class AldrumoCoreServiceProvider extends ServiceProvider
 
     protected function bootCommands()
     {
-        if ($this->app->runningInConsole() && ! Aldrumo::isInstalled()) {
+        if ($this->app->runningInConsole() && ! $this->app['aldrumo']->isInstalled()) {
             $this->commands([
                 AldrumoInstall::class,
             ]);
