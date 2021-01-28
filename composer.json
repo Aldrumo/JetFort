@@ -18,7 +18,6 @@
         "aldrumo/default-theme": "^0.1",
         "aldrumo/blocks": "^0.1",
         "aldrumo/settings": "^0.1",
-        "aldrumo/installer": "^0.1",
         "illuminate/support": "^8.0",
         "laravel/jetstream": "^2.1",
         "laravel/sanctum": "^2.6",

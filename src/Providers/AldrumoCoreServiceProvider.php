@@ -6,6 +6,7 @@ use Aldrumo\Admin\Contracts\AdminManager;
 use Aldrumo\Admin\Manager\MenuItem;
 use Aldrumo\Core\Aldrumo;
 use Aldrumo\Core\Routes\Loader;
+use Aldrumo\Installer\Console\Commands\AldrumoInstall;
 use Aldrumo\RouteLoader\Contracts\RouteLoader;
 use Aldrumo\RouteLoader\Generator;
 use Aldrumo\Settings\Contracts\Repository as SettingsContract;
@@ -25,12 +26,22 @@ class AldrumoCoreServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        $this->bootCommands();
         $this->bootMigrations();
         $this->bootPublishes();
 
         if ($this->app['aldrumo']->isInstalled()) {
             $this->bootRoutes();
             $this->bootTheme();
+        }
+    }
+
+    protected function bootCommands()
+    {
+        if ($this->app->runningInConsole() && ! Aldrumo::isInstalled()) {
+            $this->commands([
+                AldrumoInstall::class,
+            ]);
         }
     }
 

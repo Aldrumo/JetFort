@@ -1,0 +1,231 @@
+<?php
+
+namespace Aldrumo\Core\Console\Commands;
+
+use Aldrumo\Core\Facades\Aldrumo;
+use Aldrumo\Core\Models\User;
+use Aldrumo\Settings\Models\Setting;
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Hash;
+use Symfony\Component\Finder\Finder;
+
+class AldrumoInstall extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'aldrumo:install';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Install Aldrumo';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return int
+     */
+    public function handle()
+    {
+
+
+        $this->output->write(PHP_EOL . "<fg=cyan>    ___    __    __
+   /   |  / /___/ /______  ______ ___  ____
+  / /| | / / __  / ___/ / / / __ `__ \/ __ \
+ / ___ |/ / /_/ / /  / /_/ / / / / / / /_/ /
+/_/  |_/_/\__,_/_/   \__,_/_/ /_/ /_/\____/ </>" . PHP_EOL . PHP_EOL);
+
+        $this->siteName = $this->ask('What is your site name?');
+        $this->siteUrl = $this->ask('What is your site url?');
+        $this->dbHost = $this->ask('What is your database host?');
+        $this->dbUser = $this->ask('What is your database user?');
+        $this->dbPass = $this->secret('What is your database password?');
+        $this->dbName = $this->ask('What is your database name?');
+
+        $this->adminName = $this->ask('What is the Admins name?');
+        $this->adminEmail = $this->ask('What is the Admins email?');
+        $this->adminPass = $this->secret('What is the Admins password?');
+        $passConfirm = $this->secret('Confirm Password');
+
+        if ($this->adminPass !== $passConfirm) {
+            $this->error('Admin passwords did not match.');
+            return;
+        }
+
+        $bar = $this->output->createProgressBar(9);
+        $bar->start();
+
+        $this->clearMigrations();
+        $bar->advance();
+
+        $this->clearRouteFiles();
+        $bar->advance();
+
+        $this->publishAssets();
+        $bar->advance();
+
+        $this->updateConfigs();
+        $bar->advance();
+
+        $this->setupEnv();
+        $bar->advance();
+
+        $this->migrate();
+        $bar->advance();
+
+        $this->installTheme();
+        $bar->advance();
+
+        $this->createAdmin();
+        $bar->advance();
+
+        $this->complete();
+        $bar->finish();
+
+        $this->newLine();
+        $this->info('Aldrumo has been installed.');
+        $this->info('You can now login to your admin panel at ' . $this->siteUrl . '/admin');
+    }
+
+    protected function clearMigrations()
+    {
+        $finder = new Finder();
+
+        foreach ($finder->in(base_path('database/migrations/')) as $file) {
+            unlink($file->getPathname());
+        }
+    }
+
+    protected function clearRouteFiles()
+    {
+        $finder = new Finder();
+
+        foreach ($finder->in(base_path('routes/')) as $file) {
+            file_put_contents(
+                $file->getPathname(),
+                '<?php'
+            );
+        }
+    }
+
+    protected function publishAssets()
+    {
+        $this->callSilently('vendor:publish', ['--tag' => 'aldrumo', '--force' => true]);
+        $this->callSilently('vendor:publish', ['--tag' => 'aldrumo-public', '--force' => true]);
+    }
+
+    protected function updateConfigs()
+    {
+        $this->replaceInFile(
+            "'model' => App\Models\User::class,",
+            "'model' => Aldrumo\Core\Models\User::class,",
+            config_path('auth.php')
+        );
+
+        $this->replaceInFile(
+            "'paths' => [",
+            "'paths' => [\nbase_path('vendor/aldrumo/admin/resources/views'),\n",
+            config_path('view.php')
+        );
+
+        $this->replaceInFile(
+            "'controller' => null,",
+            "'controller' => \Aldrumo\Core\Http\Controllers\PageController::class,",
+            config_path('routeloader.php')
+        );
+    }
+
+    protected function setupEnv()
+    {
+        $this->replaceInFile(
+            "APP_NAME=Laravel",
+            'APP_NAME="' . $this->siteName . '"',
+            base_path('.env')
+        );
+        $this->replaceInFile(
+            "APP_URL=http://localhost",
+            'APP_URL="' . $this->siteUrl . '"',
+            base_path('.env')
+        );
+        $this->replaceInFile(
+            "DB_HOST=127.0.0.1",
+            'DB_HOST="' . $this->dbHost . '"',
+            base_path('.env')
+        );
+        $this->replaceInFile(
+            "DB_DATABASE=laravel",
+            'DB_DATABASE="' . $this->dbName . '"',
+            base_path('.env')
+        );
+        $this->replaceInFile(
+            "DB_USERNAME=root",
+            'DB_USERNAME="' . $this->dbUser . '"',
+            base_path('.env')
+        );
+        $this->replaceInFile(
+            "DB_PASSWORD=",
+            'DB_PASSWORD="' . $this->dbPass . '"',
+            base_path('.env')
+        );
+
+        $this->replaceInFile("'SESSION_DRIVER', 'file'", "'SESSION_DRIVER', 'database'", config_path('session.php'));
+        $this->replaceInFile('SESSION_DRIVER=file', 'SESSION_DRIVER=database', base_path('.env'));
+    }
+
+    protected function migrate()
+    {
+        $this->callSilently('migrate');
+    }
+
+    protected function installTheme()
+    {
+        Setting::create([
+            'slug'         => 'activeTheme',
+            'setting_data' => 'DefaultTheme',
+        ]);
+    }
+
+    protected function createAdmin()
+    {
+        $user = User::create([
+            'name' => $this->adminName,
+            'email' => $this->adminEmail,
+            'password' => Hash::make($this->adminPass),
+        ]);
+    }
+
+    protected function complete()
+    {
+        file_put_contents(
+            base_path('aldrumo.installed'),
+            Aldrumo::version()
+        );
+    }
+
+    /**
+     * Replace the given string in the given file.
+     * @link https://github.com/laravel/installer/blob/master/src/NewCommand.php
+     */
+    protected function replaceInFile(string $search, string $replace, string $file)
+    {
+        file_put_contents(
+            $file,
+            str_replace($search, $replace, file_get_contents($file))
+        );
+    }
+}
