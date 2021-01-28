@@ -4,3 +4,4 @@ composer.phar
 .DS_Store
 Themes
 .phpunit.result.cache
+composer.lock

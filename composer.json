@@ -9,22 +9,21 @@
             "email": "mike@mikebarlow.co.uk"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php": "^7.3",
-        "aldrumo/admin": "dev-main",
-        "aldrumo/route-loader": "dev-main",
-        "aldrumo/theme-manager": "dev-main",
-        "aldrumo/default-page": "dev-main",
-        "aldrumo/default-theme": "dev-main",
-        "aldrumo/blocks": "dev-main",
-        "aldrumo/settings": "dev-main",
-        "aldrumo/installer": "dev-main",
+        "aldrumo/admin": "^0.1",
+        "aldrumo/route-loader": "^0.1",
+        "aldrumo/theme-manager": "^0.1",
+        "aldrumo/default-page": "^0.2",
+        "aldrumo/default-theme": "^0.1",
+        "aldrumo/blocks": "^0.1",
+        "aldrumo/settings": "^0.1",
+        "aldrumo/installer": "^0.1",
         "illuminate/support": "^8.0",
         "laravel/jetstream": "^2.1",
         "laravel/sanctum": "^2.6",
         "livewire/livewire": "^2.0",
-        "spatie/laravel-sluggable": "9999999-dev"
+        "spatie/laravel-sluggable": "^2.6"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5",
