@@ -153,38 +153,40 @@ class AldrumoInstall extends Command
     protected function setupEnv()
     {
         $this->replaceInFile(
-            "APP_NAME=Laravel",
+            "APP_NAME=" . env('APP_NAME'),
             'APP_NAME="' . $this->siteName . '"',
             base_path('.env')
         );
         $this->replaceInFile(
-            "APP_URL=http://localhost",
+            "APP_URL=" . env('APP_URL'),
             'APP_URL="' . $this->siteUrl . '"',
             base_path('.env')
         );
         $this->replaceInFile(
-            "DB_HOST=127.0.0.1",
+            "DB_HOST=" . env('DB_HOST'),
             'DB_HOST="' . $this->dbHost . '"',
             base_path('.env')
         );
         $this->replaceInFile(
-            "DB_DATABASE=laravel",
+            "DB_DATABASE=" . env('DB_DATABASE'),
             'DB_DATABASE="' . $this->dbName . '"',
             base_path('.env')
         );
         $this->replaceInFile(
-            "DB_USERNAME=root",
+            "DB_USERNAME=" . env('DB_USERNAME'),
             'DB_USERNAME="' . $this->dbUser . '"',
             base_path('.env')
         );
         $this->replaceInFile(
-            "DB_PASSWORD=",
+            "DB_PASSWORD=" . env('DB_PASSWORD'),
             'DB_PASSWORD="' . $this->dbPass . '"',
             base_path('.env')
         );
 
         $this->replaceInFile("'SESSION_DRIVER', 'file'", "'SESSION_DRIVER', 'database'", config_path('session.php'));
         $this->replaceInFile('SESSION_DRIVER=file', 'SESSION_DRIVER=database', base_path('.env'));
+
+        $this->reloadEnv();
     }
 
     protected function migrate()
@@ -227,5 +229,12 @@ class AldrumoInstall extends Command
             $file,
             str_replace($search, $replace, file_get_contents($file))
         );
+    }
+
+    protected function reloadEnv()
+    {
+        $app = app();
+        (new LoadEnvironmentVariables())->bootstrap($app);
+        (new LoadConfiguration())->bootstrap($app);
     }
 }
