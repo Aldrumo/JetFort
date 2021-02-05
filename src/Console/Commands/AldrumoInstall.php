@@ -6,6 +6,8 @@ use Aldrumo\Core\Facades\Aldrumo;
 use Aldrumo\Core\Models\User;
 use Aldrumo\Settings\Models\Setting;
 use Illuminate\Console\Command;
+use Illuminate\Foundation\Bootstrap\LoadConfiguration;
+use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\Finder\Finder;
 
