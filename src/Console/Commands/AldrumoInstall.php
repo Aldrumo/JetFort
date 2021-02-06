@@ -206,11 +206,14 @@ class AldrumoInstall extends Command
 
     protected function createAdmin()
     {
+        /** @var User $user */
         $user = User::create([
             'name' => $this->adminName,
             'email' => $this->adminEmail,
             'password' => Hash::make($this->adminPass),
+            'is_admin' => true,
         ]);
+        $user->markEmailAsVerified();
     }
 
     protected function complete()
