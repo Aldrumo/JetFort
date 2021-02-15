@@ -27,6 +27,18 @@ class AldrumoInstall extends Command
      */
     protected $description = 'Install Aldrumo';
 
+    /** @var array */
+    protected $steps = [
+        'clearMigrations',
+        'clearRouteFiles',
+        'updateConfigs',
+        'setupEnv',
+        'migrate',
+        'installTheme',
+        'publishAssets',
+        'createAdmin'
+    ];
+
     /**
      * Create a new command instance.
      *
@@ -69,33 +81,19 @@ class AldrumoInstall extends Command
             return;
         }
 
-        $bar = $this->output->createProgressBar(9);
+        $bar = $this->output->createProgressBar(
+            count($this->steps)
+        );
         $bar->start();
 
-        $this->clearMigrations();
-        $bar->advance();
-
-        $this->clearRouteFiles();
-        $bar->advance();
-
-        $this->publishAssets();
-        $bar->advance();
-
-        $this->updateConfigs();
-        $bar->advance();
-
-        $this->setupEnv();
-        $bar->advance();
-
-        $this->migrate();
-        $bar->advance();
-
-        $this->installTheme();
-        $bar->advance();
-
-        $this->createAdmin();
-        $bar->advance();
-
+        collect($this->steps)
+            ->each(
+                function ($func) use ($bar) {
+                    $this->$func();
+                    $bar->advance();
+                }
+            );
+        
         $this->complete();
         $bar->finish();
 
@@ -200,7 +198,7 @@ class AldrumoInstall extends Command
     {
         Setting::create([
             'slug'         => 'activeTheme',
-            'setting_data' => 'DefaultTheme',
+            'setting_data' => 'Aldrumo21',
         ]);
     }
 

@@ -15,7 +15,7 @@
         "aldrumo/route-loader": "^0.1",
         "aldrumo/theme-manager": "^0.1",
         "aldrumo/default-page": "^0.2",
-        "aldrumo/default-theme": "^0.1",
+        "aldrumo-themes/aldrumo21": "^0.1",
         "aldrumo/blocks": "^0.1",
         "aldrumo/settings": "^0.1",
         "illuminate/support": "^8.0",
