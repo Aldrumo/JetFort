@@ -32,6 +32,7 @@ class AldrumoInstall extends Command
         'clearMigrations',
         'clearRouteFiles',
         'clearModels',
+        'publishConfigs',
         'updateConfigs',
         'setupEnv',
         'migrate',
@@ -129,9 +130,13 @@ class AldrumoInstall extends Command
         }
     }
 
-    protected function publishAssets()
+    protected function publishConfigs()
     {
         $this->callSilently('vendor:publish', ['--tag' => 'aldrumo', '--force' => true]);
+    }
+
+    protected function publishAssets()
+    {
         $this->callSilently('vendor:publish', ['--tag' => 'aldrumo-public', '--force' => true]);
     }
 
