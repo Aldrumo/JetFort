@@ -31,6 +31,7 @@ class AldrumoInstall extends Command
     protected $steps = [
         'clearMigrations',
         'clearRouteFiles',
+        'clearModels',
         'updateConfigs',
         'setupEnv',
         'migrate',
@@ -39,13 +40,17 @@ class AldrumoInstall extends Command
         'createAdmin'
     ];
 
+    /** @var Finder */
+    protected $finder;
+
     /**
      * Create a new command instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Finder $finder)
     {
+        $this->finder = $finder;
         parent::__construct();
     }
 
@@ -56,8 +61,6 @@ class AldrumoInstall extends Command
      */
     public function handle()
     {
-
-
         $this->output->write(PHP_EOL . "<fg=cyan>    ___    __    __
    /   |  / /___/ /______  ______ ___  ____
   / /| | / / __  / ___/ / / / __ `__ \/ __ \
@@ -93,7 +96,7 @@ class AldrumoInstall extends Command
                     $bar->advance();
                 }
             );
-        
+
         $this->complete();
         $bar->finish();
 
@@ -104,22 +107,25 @@ class AldrumoInstall extends Command
 
     protected function clearMigrations()
     {
-        $finder = new Finder();
-
-        foreach ($finder->in(base_path('database/migrations/')) as $file) {
+        foreach ($this->finder->in(base_path('database/migrations/')) as $file) {
             unlink($file->getPathname());
         }
     }
 
     protected function clearRouteFiles()
     {
-        $finder = new Finder();
-
-        foreach ($finder->in(base_path('routes/')) as $file) {
+        foreach ($this->finder->in(base_path('routes/')) as $file) {
             file_put_contents(
                 $file->getPathname(),
                 '<?php'
             );
+        }
+    }
+
+    protected function clearModels()
+    {
+        foreach ($this->finder->in(base_path('app/models/')) as $file) {
+            unlink($file->getPathname());
         }
     }
 
