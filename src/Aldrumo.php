@@ -6,7 +6,7 @@ class Aldrumo
 {
     public function version(): string
     {
-        return '0.1.4';
+        return '0.1.6';
     }
 
     public function isInstalled(): bool

@@ -41,17 +41,13 @@ class AldrumoInstall extends Command
         'createAdmin'
     ];
 
-    /** @var Finder */
-    protected $finder;
-
     /**
      * Create a new command instance.
      *
      * @return void
      */
-    public function __construct(Finder $finder)
+    public function __construct()
     {
-        $this->finder = $finder;
         parent::__construct();
     }
 
@@ -108,14 +104,16 @@ class AldrumoInstall extends Command
 
     protected function clearMigrations()
     {
-        foreach ($this->finder->in(base_path('database/migrations/')) as $file) {
+        $finder = new Finder();
+        foreach ($finder->in(base_path('database/migrations/')) as $file) {
             unlink($file->getPathname());
         }
     }
 
     protected function clearRouteFiles()
     {
-        foreach ($this->finder->in(base_path('routes/')) as $file) {
+        $finder = new Finder();
+        foreach ($finder->in(base_path('routes/')) as $file) {
             file_put_contents(
                 $file->getPathname(),
                 '<?php'
@@ -125,7 +123,8 @@ class AldrumoInstall extends Command
 
     protected function clearModels()
     {
-        foreach ($this->finder->in(base_path('app/models/')) as $file) {
+        $finder = new Finder();
+        foreach ($finder->in(base_path('app/models/')) as $file) {
             unlink($file->getPathname());
         }
     }
