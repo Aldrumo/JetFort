@@ -2,7 +2,7 @@
 
 Contributions and suggestion are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/mikebarlow/core).
+We accept contributions via Pull Requests on [Github](https://github.com/aldrumo/core).
 
 ## Pull Requests
 
