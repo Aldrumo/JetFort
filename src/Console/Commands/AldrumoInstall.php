@@ -5,6 +5,7 @@ namespace Aldrumo\Core\Console\Commands;
 use Aldrumo\Core\Facades\Aldrumo;
 use Aldrumo\Core\Models\User;
 use Aldrumo\Settings\Models\Setting;
+use Aldrumo\ThemeManager\ThemeManager;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Bootstrap\LoadConfiguration;
 use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
@@ -206,10 +207,12 @@ class AldrumoInstall extends Command
 
     protected function installTheme()
     {
+        $defaultTheme = 'Aldrumo21';
         Setting::create([
             'slug'         => 'activeTheme',
-            'setting_data' => 'Aldrumo21',
+            'setting_data' => $defaultTheme,
         ]);
+        resolve(ThemeManager::class)->activeTheme($defaultTheme);
     }
 
     protected function createAdmin()
