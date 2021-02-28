@@ -11,6 +11,7 @@ use Illuminate\Foundation\Bootstrap\LoadConfiguration;
 use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\Process\Process;
 
 class AldrumoInstall extends Command
 {
@@ -30,16 +31,17 @@ class AldrumoInstall extends Command
 
     /** @var array */
     protected $steps = [
-        'clearMigrations',
-        'clearRouteFiles',
-        'clearModels',
-        'publishConfigs',
-        'updateConfigs',
-        'setupEnv',
-        'migrate',
-        'installTheme',
-        'publishAssets',
-        'createAdmin'
+        'createThemesDir',
+//        'clearMigrations',
+//        'clearRouteFiles',
+//        'clearModels',
+//        'publishConfigs',
+//        'updateConfigs',
+//        'setupEnv',
+//        'migrate',
+//        'installTheme',
+//        'publishAssets',
+//        'createAdmin'
     ];
 
     /**
@@ -101,6 +103,29 @@ class AldrumoInstall extends Command
         $this->newLine();
         $this->info('Aldrumo has been installed.');
         $this->info('You can now login to your admin panel at ' . $this->siteUrl . '/admin');
+    }
+
+    protected function createThemesDir()
+    {
+        $themesDir = base_path('themes');
+        $composerFile = base_path('composer.json');
+
+        if (! is_dir($themesDir)) {
+            mkdir($themesDir);
+        }
+
+        $composerJson = json_decode(
+            file_get_contents($composerFile),
+            true
+        );
+        $composerJson['autoload']['psr-4']['AldrumoThemes\\'] = 'themes/';
+
+        file_put_contents(
+            $composerFile,
+            json_encode($composerJson, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
+        );
+
+        (new Process([$composer, 'dump-autoload']))->run();
     }
 
     protected function clearMigrations()
@@ -235,6 +260,13 @@ class AldrumoInstall extends Command
         );
     }
 
+    protected function reloadEnv()
+    {
+        $app = app();
+        (new LoadEnvironmentVariables())->bootstrap($app);
+        (new LoadConfiguration())->bootstrap($app);
+    }
+
     /**
      * Replace the given string in the given file.
      * @link https://github.com/laravel/installer/blob/master/src/NewCommand.php
@@ -247,10 +279,18 @@ class AldrumoInstall extends Command
         );
     }
 
-    protected function reloadEnv()
+    /**
+     * Get the composer command for the environment.
+     * @link https://github.com/laravel/installer/blob/master/src/NewCommand.php
+     */
+    protected function findComposer()
     {
-        $app = app();
-        (new LoadEnvironmentVariables())->bootstrap($app);
-        (new LoadConfiguration())->bootstrap($app);
+        $composerPath = getcwd().'/composer.phar';
+
+        if (file_exists($composerPath)) {
+            return '"'.PHP_BINARY.'" '.$composerPath;
+        }
+
+        return 'composer';
     }
 }
