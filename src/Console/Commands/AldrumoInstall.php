@@ -32,16 +32,16 @@ class AldrumoInstall extends Command
     /** @var array */
     protected $steps = [
         'createThemesDir',
-//        'clearMigrations',
-//        'clearRouteFiles',
-//        'clearModels',
-//        'publishConfigs',
-//        'updateConfigs',
-//        'setupEnv',
-//        'migrate',
-//        'installTheme',
-//        'publishAssets',
-//        'createAdmin'
+        'clearMigrations',
+        'clearRouteFiles',
+        'clearModels',
+        'publishConfigs',
+        'updateConfigs',
+        'setupEnv',
+        'migrate',
+        'installTheme',
+        'publishAssets',
+        'createAdmin'
     ];
 
     /**
