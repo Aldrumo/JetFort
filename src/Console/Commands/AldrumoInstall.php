@@ -125,7 +125,7 @@ class AldrumoInstall extends Command
             json_encode($composerJson, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
         );
 
-        (new Process([$composer, 'dump-autoload']))->run();
+        (new Process([$this->findComposer(), 'dump-autoload']))->run();
     }
 
     protected function clearMigrations()
