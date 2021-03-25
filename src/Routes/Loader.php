@@ -10,6 +10,10 @@ class Loader implements RouteLoader
 {
     public function getRoutes(): Collection
     {
-        return Page::where('is_active', true)->get();
+        try {
+            return Page::where('is_active', true)->get();
+        } catch (\Exception $e) {
+            return collect([]);
+        }
     }
 }
