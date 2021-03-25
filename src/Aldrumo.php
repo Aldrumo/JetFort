@@ -2,6 +2,8 @@
 
 namespace Aldrumo\Core;
 
+use Composer\Semver\Comparator;
+
 class Aldrumo
 {
     public function version(): string
@@ -12,5 +14,13 @@ class Aldrumo
     public function isInstalled(): bool
     {
         return file_exists(base_path('aldrumo.installed'));
+    }
+
+    public function hasBeenUpdated(): bool
+    {
+        return Comparator::equalTo(
+            $this->version(),
+            file_get_contents(base_path('aldrumo.installed'))
+        );
     }
 }
