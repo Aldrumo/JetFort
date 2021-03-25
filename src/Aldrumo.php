@@ -18,6 +18,10 @@ class Aldrumo
 
     public function hasBeenUpdated(): bool
     {
+        if (! $this->isInstalled()) {
+            return false;
+        }
+
         return Comparator::equalTo(
             $this->version(),
             file_get_contents(base_path('aldrumo.installed'))

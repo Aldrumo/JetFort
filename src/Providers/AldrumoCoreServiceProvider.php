@@ -43,7 +43,9 @@ class AldrumoCoreServiceProvider extends ServiceProvider
             ]);
         }
 
-        if ($this->app->runningInConsole() && ! $this->app['aldrumo']->hasBeenUpdated()) {
+        if ($this->app->runningInConsole() &&
+            $this->app['aldrumo']->isInstalled() &&
+            ! $this->app['aldrumo']->hasBeenUpdated()) {
             $this->commands([
                 AldrumoUpdate::class,
             ]);
