@@ -4,6 +4,7 @@ namespace Aldrumo\Core\Routes;
 
 use Aldrumo\Core\Models\Page;
 use Aldrumo\RouteLoader\Contracts\RouteLoader;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Collection;
 
 class Loader implements RouteLoader
@@ -12,7 +13,7 @@ class Loader implements RouteLoader
     {
         try {
             return Page::where('is_active', true)->get();
-        } catch (\Exception $e) {
+        } catch (QueryException $e) {
             return collect([]);
         }
     }
