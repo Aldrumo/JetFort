@@ -3,6 +3,7 @@
 namespace Aldrumo\Core\Providers;
 
 use Aldrumo\Core\Aldrumo;
+use Aldrumo\Core\Console\Commands\AldrumoUpdate;
 use Aldrumo\Core\Routes\Loader;
 use Aldrumo\Core\Console\Commands\AldrumoInstall;
 use Aldrumo\RouteLoader\Contracts\RouteLoader;
@@ -39,6 +40,14 @@ class AldrumoCoreServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole() && ! $this->app['aldrumo']->isInstalled()) {
             $this->commands([
                 AldrumoInstall::class,
+            ]);
+        }
+
+        if ($this->app->runningInConsole() &&
+            $this->app['aldrumo']->isInstalled() &&
+            ! $this->app['aldrumo']->hasBeenUpdated()) {
+            $this->commands([
+                AldrumoUpdate::class,
             ]);
         }
     }

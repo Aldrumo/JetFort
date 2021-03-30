@@ -11,9 +11,9 @@
     ],
     "require": {
         "php": "^7.3",
-        "aldrumo/admin": "^0.1",
+        "aldrumo/admin": "^0.2",
         "aldrumo/route-loader": "^0.1",
-        "aldrumo/theme-manager": "^0.1",
+        "aldrumo/theme-manager": "^0.2",
         "aldrumo/default-page": "^0.2",
         "aldrumo-themes/aldrumo21": "^0.1",
         "aldrumo/blocks": "^0.1",
@@ -22,7 +22,8 @@
         "laravel/jetstream": "^2.1",
         "laravel/sanctum": "^2.6",
         "livewire/livewire": "^2.0",
-        "spatie/laravel-sluggable": "^2.6"
+        "spatie/laravel-sluggable": "^2.6",
+        "composer/semver": "^3.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5",
