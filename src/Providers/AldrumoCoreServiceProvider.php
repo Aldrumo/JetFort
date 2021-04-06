@@ -64,6 +64,7 @@ class AldrumoCoreServiceProvider extends ServiceProvider
             __DIR__ . '/../../config/sanctum.php'   => config_path('sanctum.php'),
             __DIR__ . '/../../config/fortify.php'   => config_path('fortify.php'),
             __DIR__ . '/../../config/jetstream.php' => config_path('jetstream.php'),
+            __DIR__ . '/../../resources/views'     => resource_path('views/vendor/aldrumo-core'),
         ]);
     }
 
@@ -100,11 +101,7 @@ class AldrumoCoreServiceProvider extends ServiceProvider
 
     protected function bootViews()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'AldrumoCore');
-
-        $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/aldrumo-core'),
-        ]);
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'AldrumoCore');
     }
 
     protected function registerBindings()

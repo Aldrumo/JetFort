@@ -38,7 +38,7 @@
             <p class="text-lg text-blue-950 my-10">This is the default Aldrumo page, you can now begin setting up your pages via the admin panel.</p>
 
             <div class="mx-auto w-full flex text-base">
-                <a href="{{ route('admin.dashboard') }}" target="_blank" rel="noopener" class="mr-8 flex flex-grow justify-end text-blue-950 hover:text-green-600">
+                <a href="/admin" target="_blank" rel="noopener" class="mr-8 flex flex-grow justify-end text-blue-950 hover:text-green-600">
                     <x-heroicon-s-pencil-alt class="w-4 h-4 mr-2 mt-1"/>
                     Admin Panel
                 </a>
