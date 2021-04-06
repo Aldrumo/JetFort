@@ -28,6 +28,7 @@ class AldrumoCoreServiceProvider extends ServiceProvider
         $this->bootCommands();
         $this->bootMigrations();
         $this->bootPublishes();
+        $this->bootViews();
 
         if ($this->app['aldrumo']->isInstalled()) {
             $this->bootRoutes();
@@ -95,6 +96,15 @@ class AldrumoCoreServiceProvider extends ServiceProvider
         resolve(ThemeManager::class)->activeTheme(
             resolve(SettingsContract::class)->get('activeTheme')
         );
+    }
+
+    protected function bootViews()
+    {
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'AldrumoCore');
+
+        $this->publishes([
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/aldrumo-core'),
+        ]);
     }
 
     protected function registerBindings()

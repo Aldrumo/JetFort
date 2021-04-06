@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'AldrumoDefaults::default-page');
+Route::view('/', 'AldrumoCore::default-page');
 
 // @todo Route loader stuff here
