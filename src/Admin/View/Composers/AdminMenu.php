@@ -1,8 +1,8 @@
 <?php
 
-namespace Aldrumo\Admin\View\Composers;
+namespace Aldrumo\Core\Admin\View\Composers;
 
-use Aldrumo\Admin\Contracts\AdminManager;
+use Aldrumo\Core\Admin\Contracts\AdminManager;
 use Illuminate\View\View;
 
 class AdminMenu

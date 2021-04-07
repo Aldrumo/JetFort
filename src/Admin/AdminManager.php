@@ -1,8 +1,8 @@
 <?php
 
-namespace Aldrumo\Admin;
+namespace Aldrumo\Core\Admin;
 
-use Aldrumo\Admin\Contracts\AdminManager as AdminContract;
+use Aldrumo\Core\Admin\Contracts\AdminManager as AdminContract;
 use Illuminate\Support\Collection;
 
 class AdminManager implements AdminContract

@@ -1,6 +1,6 @@
 <?php
 
-namespace Aldrumo\Admin\Http\Livewire;
+namespace Aldrumo\Core\Admin\Http\Livewire;
 
 use Laravel\Jetstream\Http\Livewire\NavigationMenu as NavMenuBase;
 

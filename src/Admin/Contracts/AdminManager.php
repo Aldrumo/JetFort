@@ -1,6 +1,6 @@
 <?php
 
-namespace Aldrumo\Admin\Contracts;
+namespace Aldrumo\Core\Admin\Contracts;
 
 use Illuminate\Support\Collection;
 

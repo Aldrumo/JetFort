@@ -1,6 +1,6 @@
 <?php
 
-namespace Aldrumo\Admin\Manager;
+namespace Aldrumo\Core\Admin\Manager;
 
 class MenuItem
 {

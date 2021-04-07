@@ -1,6 +1,6 @@
 <?php
 
-namespace Aldrumo\Admin\Http\Middleware;
+namespace Aldrumo\Core\Admin\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

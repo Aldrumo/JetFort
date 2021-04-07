@@ -1,6 +1,6 @@
 <?php
 
-namespace Aldrumo\Admin\Http\Livewire\Pages;
+namespace Aldrumo\Core\Admin\Http\Livewire\Pages;
 
 use Aldrumo\Core\Models\Page;
 use Aldrumo\RouteLoader\Generator;

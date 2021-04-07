@@ -1,6 +1,6 @@
 <?php
 
-namespace Aldrumo\Admin\Http\Controllers\Api;
+namespace Aldrumo\Core\Admin\Http\Controllers\Api;
 
 use Aldrumo\Core\Models\Page;
 use Aldrumo\ThemeManager\ThemeManager;

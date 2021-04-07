@@ -1,16 +1,16 @@
 <?php
 
-namespace Aldrumo\Admin\Providers;
+namespace Aldrumo\Core\Admin\Providers;
 
-use Aldrumo\Admin\AdminManager;
-use Aldrumo\Admin\Contracts\AdminManager as AdminManagerContract;
-use Aldrumo\Admin\Http\Livewire\NavigationMenu;
-use Aldrumo\Admin\Http\Livewire\Pages\CreatePage;
-use Aldrumo\Admin\Http\Livewire\Pages\EditPageMeta;
-use Aldrumo\Admin\Http\Livewire\Pages\PagesAdmin;
-use Aldrumo\Admin\Http\Middleware;
-use Aldrumo\Admin\Manager\MenuItem;
-use Aldrumo\Admin\View\Composers\AdminMenu;
+use Aldrumo\Core\Admin\AdminManager;
+use Aldrumo\Core\Admin\Contracts\AdminManager as AdminManagerContract;
+use Aldrumo\Core\Admin\Http\Livewire\NavigationMenu;
+use Aldrumo\Core\Admin\Http\Livewire\Pages\CreatePage;
+use Aldrumo\Core\Admin\Http\Livewire\Pages\EditPageMeta;
+use Aldrumo\Core\Admin\Http\Livewire\Pages\PagesAdmin;
+use Aldrumo\Core\Admin\Http\Middleware;
+use Aldrumo\Core\Admin\Manager\MenuItem;
+use Aldrumo\Core\Admin\View\Composers\AdminMenu;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
@@ -74,12 +74,12 @@ class AdminServiceProvider extends ServiceProvider
     protected function bootPublishes()
     {
         $this->publishes([
-            __DIR__ . '/../../resources/views' => resource_path('views/vendor/' . 'Admin'),
+            __DIR__ . '/../../../resources/views/admin' => resource_path('views/vendor/Admin'),
         ], 'aldrumo-Admin-views');
 
         $this->publishes(
             [
-                __DIR__ . '/../../resources/dist' => public_path('aldrumo/admin'),
+                __DIR__ . '/../../../resources/dist' => public_path('aldrumo/admin'),
             ],
             'aldrumo-public'
         );
@@ -90,7 +90,7 @@ class AdminServiceProvider extends ServiceProvider
         Route::middleware(['web', 'auth:sanctum', 'verified', 'adminCheck',])
             ->group(
                 function () {
-                    $this->loadRoutesFrom(__DIR__ . '/../../routes/admin.php');
+                    $this->loadRoutesFrom(__DIR__ . '/../../../routes/admin.php');
                 }
             );
     }
@@ -105,10 +105,10 @@ class AdminServiceProvider extends ServiceProvider
 
     protected function bootViews()
     {
-        Blade::componentNamespace('Aldrumo\\Admin\\View\\Components', 'Admin');
+        Blade::componentNamespace('Aldrumo\\Core\\Admin\\View\\Components', 'Admin');
 
         $this->loadViewsFrom(
-            __DIR__ . '/../../resources/views',
+            __DIR__ . '/../../../resources/views/admin',
             'Admin'
         );
     }

@@ -1,7 +1,7 @@
 <?php
 
-use Aldrumo\Admin\Http\Controllers;
-use Aldrumo\Admin\Http\Middleware\InjectEditor;
+use Aldrumo\Core\Admin\Http\Controllers;
+use Aldrumo\Core\Admin\Http\Middleware\InjectEditor;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/admin', function () {
