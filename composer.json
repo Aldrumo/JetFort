@@ -13,7 +13,7 @@
         "php": "^7.3",
         "aldrumo/admin": "^0.2",
         "aldrumo/route-loader": "^0.1",
-        "aldrumo/theme-manager": "^0.2",
+        "aldrumo/theme-manager": "^0.3",
         "aldrumo-themes/aldrumo21": "^0.1",
         "aldrumo/blocks": "^0.1",
         "aldrumo/settings": "^0.1",
