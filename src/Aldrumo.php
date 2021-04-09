@@ -11,6 +11,11 @@ class Aldrumo
         return '0.3.0';
     }
 
+    public function currentVersion(): string
+    {
+        return file_get_contents(base_path('aldrumo.installed'));
+    }
+
     public function isInstalled(): bool
     {
         return file_exists(base_path('aldrumo.installed'));

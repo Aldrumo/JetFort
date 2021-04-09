@@ -6,6 +6,6 @@ class Update_030
 
     public function handle()
     {
-
+        echo 'Do some migration stuff';
     }
 }

@@ -3,6 +3,7 @@
 namespace Aldrumo\Core\Console\Commands;
 
 use Aldrumo\Core\Facades\Aldrumo;
+use Composer\Semver\Comparator;
 use Illuminate\Console\Command;
 
 class AldrumoUpdate extends Command
@@ -33,13 +34,29 @@ class AldrumoUpdate extends Command
   / /| | / / __  / ___/ / / / __ `__ \/ __ \
  / ___ |/ / /_/ / /  / /_/ / / / / / / /_/ /
 /_/  |_/_/\__,_/_/   \__,_/_/ /_/ /_/\____/ </>" . PHP_EOL . PHP_EOL);
+        $currentVersion = Aldrumo::currentVersion();
 
-        // @todo - create the ability to "step" through update files (similar to migrations)
+        $updates = new \DirectoryIterator(realpath(__DIR__ . '/../../../updates'));
+        foreach ($updates as $update) {
+            if ($update->isDot()) {
+                continue;
+            }
 
-        $this->complete();
+            $version = $update->getBasename('.php');
 
-        $this->newLine();
-        $this->info('Aldrumo has been updated to v' . Aldrumo::version());
+            if (Comparator::greaterThan($version, $currentVersion)) {
+                require_once $update->getRealPath();
+
+                $migrationName = 'Update_' . str_replace('.', '', $version);
+                $migration = new $migrationName();
+                $migration->handle();
+            }
+        }
+
+        //$this->complete();
+
+        //$this->newLine();
+        //$this->info('Aldrumo has been updated to v' . Aldrumo::version());
     }
 
     protected function complete()
