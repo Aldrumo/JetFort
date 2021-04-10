@@ -8,7 +8,12 @@ class Aldrumo
 {
     public function version(): string
     {
-        return '0.2.0';
+        return '0.3.0';
+    }
+
+    public function currentVersion(): string
+    {
+        return trim(file_get_contents(base_path('aldrumo.installed')));
     }
 
     public function isInstalled(): bool
@@ -24,7 +29,7 @@ class Aldrumo
 
         return Comparator::equalTo(
             $this->version(),
-            file_get_contents(base_path('aldrumo.installed'))
+            trim(file_get_contents(base_path('aldrumo.installed')))
         );
     }
 }

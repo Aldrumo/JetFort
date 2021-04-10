@@ -184,6 +184,18 @@ class AldrumoInstall extends Command
             "'controller' => \Aldrumo\Core\Http\Controllers\PageController::class,",
             config_path('routeloader.php')
         );
+
+        $this->replaceInFile(
+            "'activeTheme' => null,",
+            "'activeTheme' => 'AldrumoCore::defaults.no-active-theme',",
+            config_path('theme-manager.php')
+        );
+
+        $this->replaceInFile(
+            "'themeNotFound' => null,",
+            "'themeNotFound' => 'AldrumoCore::defaults.theme-404',",
+            config_path('theme-manager.php')
+        );
     }
 
     protected function setupEnv()
