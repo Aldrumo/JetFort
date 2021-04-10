@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static string version()
+ * @method static string currentVersion()
  * @method static bool isInstalled()
  */
 class Aldrumo extends Facade
