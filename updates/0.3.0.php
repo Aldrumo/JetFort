@@ -6,6 +6,23 @@ class Update_030
 
     public function handle()
     {
-        echo 'Do some migration stuff';
+        \Illuminate\Support\Facades\Artisan::call(
+            'vendor:publish',
+            [
+                '--provider' => 'Aldrumo\\ThemeManager\\ThemeManagerServerProvider'
+            ]
+        );
+
+        $this->replaceInFile(
+            "'activeTheme' => null,",
+            "'activeTheme' => 'AldrumoCore::defaults.no-active-theme',",
+            config_path('theme-manager.php')
+        );
+
+        $this->replaceInFile(
+            "'themeNotFound' => null,",
+            "'activeTheme' => 'AldrumoCore::defaults.theme-404',",
+            config_path('theme-manager.php')
+        );
     }
 }
