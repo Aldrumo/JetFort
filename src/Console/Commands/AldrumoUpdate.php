@@ -37,6 +37,7 @@ class AldrumoUpdate extends Command
         $currentVersion = Aldrumo::currentVersion();
 
         $updates = new \DirectoryIterator(realpath(__DIR__ . '/../../../updates'));
+        $migrations = collect([]);
         foreach ($updates as $update) {
             if ($update->isDot()) {
                 continue;
@@ -47,16 +48,31 @@ class AldrumoUpdate extends Command
             if (Comparator::greaterThan($version, $currentVersion)) {
                 require_once $update->getRealPath();
 
-                $migrationName = 'Update_' . str_replace('.', '', $version);
-                $migration = new $migrationName();
-                $migration->handle();
+                $versionFile = str_replace('.', '', $version);
+                $migrationName = 'Update_' . $versionFile;
+                $migrations->put($versionFile, new $migrationName());
             }
         }
 
-        //$this->complete();
+        $migrations = $migrations->sortKeys();
 
-        //$this->newLine();
-        //$this->info('Aldrumo has been updated to v' . Aldrumo::version());
+        $bar = $this->output->createProgressBar(
+            $migrations->count()
+        );
+        $bar->start();
+
+        $migrations->each(
+            function ($migration) use ($bar) {
+                $migration->handle();
+                $bar->advance();
+            }
+        );
+
+        $this->complete();
+        $bar->finish();
+
+        $this->newLine();
+        $this->info('Aldrumo has been updated to v' . Aldrumo::version());
     }
 
     protected function complete()
