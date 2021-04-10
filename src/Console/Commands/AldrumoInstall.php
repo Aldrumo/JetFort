@@ -193,7 +193,7 @@ class AldrumoInstall extends Command
 
         $this->replaceInFile(
             "'themeNotFound' => null,",
-            "'activeTheme' => 'AldrumoCore::defaults.theme-404',",
+            "'themeNotFound' => 'AldrumoCore::defaults.theme-404',",
             config_path('theme-manager.php')
         );
     }

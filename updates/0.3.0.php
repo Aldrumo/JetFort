@@ -21,7 +21,7 @@ class Update_030
 
         $this->replaceInFile(
             "'themeNotFound' => null,",
-            "'activeTheme' => 'AldrumoCore::defaults.theme-404',",
+            "'themeNotFound' => 'AldrumoCore::defaults.theme-404',",
             config_path('theme-manager.php')
         );
     }
