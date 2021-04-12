@@ -19,6 +19,7 @@ class AldrumoCoreServiceProvider extends ServiceProvider
     {
         $this->registerBindings();
         $this->registerConfigs();
+        $this->registerManualThemes();
         $this->registerRouteLoader();
         $this->registerServerProviders();
     }
@@ -61,9 +62,10 @@ class AldrumoCoreServiceProvider extends ServiceProvider
     protected function bootPublishes()
     {
         $this->publishes([
-            __DIR__ . '/../../config/sanctum.php'   => config_path('sanctum.php'),
             __DIR__ . '/../../config/fortify.php'   => config_path('fortify.php'),
             __DIR__ . '/../../config/jetstream.php' => config_path('jetstream.php'),
+            __DIR__ . '/../../config/sanctum.php'   => config_path('sanctum.php'),
+            __DIR__ . '/../../config/themes.php'    => config_path('themes.php'),
             __DIR__ . '/../../resources/views'     => resource_path('views/vendor/aldrumo-core'),
         ]);
     }
@@ -117,11 +119,6 @@ class AldrumoCoreServiceProvider extends ServiceProvider
     protected function registerConfigs()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../../config/sanctum.php',
-            'sanctum'
-        );
-
-        $this->mergeConfigFrom(
             __DIR__ . '/../../config/fortify.php',
             'fortify'
         );
@@ -130,6 +127,25 @@ class AldrumoCoreServiceProvider extends ServiceProvider
             __DIR__ . '/../../config/jetstream.php',
             'jetstream'
         );
+
+        $this->mergeConfigFrom(
+            __DIR__ . '/../../config/sanctum.php',
+            'sanctum'
+        );
+
+        $this->mergeConfigFrom(
+            __DIR__ . '/../../config/themes.php',
+            'themes'
+        );
+    }
+
+    protected function registerManualThemes()
+    {
+        $manualThemes = config('themes');
+        foreach ($manualThemes as $theme) {
+            $serviceProvider = $theme . 'ServiceProvider';
+            $this->app->register('\AldrumoThemes\\' . $theme . '\\' . $serviceProvider);
+        }
     }
 
     protected function registerRouteLoader()
