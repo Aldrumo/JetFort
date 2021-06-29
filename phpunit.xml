@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit colors="true" bootstrap="vendor/autoload.php">
-    <testsuites>
-        <testsuite name="aldrumo/core tests">
-            <directory>tests/</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist>
-            <directory suffix=".php">src/</directory>
-        </whitelist>
-    </filter>
-    <php>
-        <server name="APP_ENV" value="testing"/>
-    </php>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" colors="true" bootstrap="vendor/autoload.php" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <coverage>
+    <include>
+      <directory suffix=".php">src/</directory>
+    </include>
+  </coverage>
+  <testsuites>
+    <testsuite name="aldrumo/core tests">
+      <directory>tests/</directory>
+    </testsuite>
+  </testsuites>
+  <php>
+    <server name="APP_ENV" value="testing"/>
+  </php>
 </phpunit>
