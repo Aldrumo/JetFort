@@ -68,14 +68,14 @@ class AldrumoUpdate extends Command
             }
         );
 
-        $this->complete();
+        $this->completeUpdate();
         $bar->finish();
 
         $this->newLine();
         $this->info('Aldrumo has been updated to v' . Aldrumo::version());
     }
 
-    protected function complete()
+    protected function completeUpdate()
     {
         file_put_contents(
             base_path('aldrumo.installed'),

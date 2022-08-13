@@ -97,7 +97,7 @@ class AldrumoInstall extends Command
                 }
             );
 
-        $this->complete();
+        $this->completeUpdate();
         $bar->finish();
 
         $this->newLine();
@@ -264,7 +264,7 @@ class AldrumoInstall extends Command
         $user->markEmailAsVerified();
     }
 
-    protected function complete()
+    protected function completeUpdate()
     {
         file_put_contents(
             base_path('aldrumo.installed'),
