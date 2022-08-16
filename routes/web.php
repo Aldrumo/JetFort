@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'AldrumoCore::default-page');
+Route::view('/', 'AldrumoCore::defaults.home');
