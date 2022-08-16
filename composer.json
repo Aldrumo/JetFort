@@ -21,7 +21,7 @@
         "laravel/jetstream": "^2.1",
         "laravel/sanctum": "^3.0",
         "livewire/livewire": "^2.0",
-        "spatie/laravel-sluggable": "^2.6",
+        "spatie/laravel-sluggable": "^3.0",
         "composer/semver": "^3.2"
     },
     "require-dev": {
