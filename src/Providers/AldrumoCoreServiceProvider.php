@@ -8,7 +8,8 @@ use Aldrumo\Core\Routes\Loader;
 use Aldrumo\Core\Console\Commands\AldrumoInstall;
 use Aldrumo\RouteLoader\Contracts\RouteLoader;
 use Aldrumo\RouteLoader\Generator;
-use Aldrumo\Settings\Contracts\Repository as SettingsContract;
+use Aldrumo\ThemeManager\Exceptions\ActiveThemeNotSetException;
+use Aldrumo\ThemeManager\Models\Theme;
 use Aldrumo\ThemeManager\ThemeManager;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -94,8 +95,14 @@ class AldrumoCoreServiceProvider extends ServiceProvider
 
     protected function bootTheme()
     {
+        $theme = Theme::getActive();
+
+        if ($theme === null) {
+            throw new ActiveThemeNotSetException;
+        }
+
         resolve(ThemeManager::class)->activeTheme(
-            resolve(SettingsContract::class)->get('activeTheme')
+            $theme->name
         );
     }
 

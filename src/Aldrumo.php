@@ -8,7 +8,7 @@ class Aldrumo
 {
     public function version(): string
     {
-        return '0.4.6';
+        return '0.4.7';
     }
 
     public function currentVersion(): string
