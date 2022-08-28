@@ -1,4 +1,4 @@
-name: tests
+name: PHP Composer
 
 on:
   push:
@@ -8,13 +8,13 @@ on:
 
 jobs:
   build:
-
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
         operating-system: [ubuntu-20.04]
-        php-versions: ['8.0']
+        php: ['8.0', '8.1']
 
+    name: P${{ matrix.php }}
     steps:
       - uses: actions/checkout@v2
 
